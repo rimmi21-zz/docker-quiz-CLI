@@ -29,5 +29,16 @@ async function askName() {
       return "Player";
     },
   });
-  playerName;
+  playerName = answers.player_name;
+}
+await askName();
+
+async function question1() {
+  const answers = await inquirer.prompt({
+    name: "question 1",
+    type: "input",
+    message: "What was Harry Potter's mother's name?",
+    choices: ["Albus Potter", "James Potter", "Severus Snape"],
+  });
+  return handleAnswer(answers.question1);
 }

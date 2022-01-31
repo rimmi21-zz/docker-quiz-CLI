@@ -16,6 +16,18 @@ async function welcome() {
   await sleep();
   rainbowTitle.stop();
 
-  console.log(`${chalk.bgBlueBright("How to Play!")}`);
+  console.log(`${chalk.bgBlueBright("Are you ready to?")}`);
 }
 await welcome();
+
+async function askName() {
+  const answers = await inquirer.prompt({
+    name: "player_name",
+    type: "input",
+    message: "What is your name?",
+    default() {
+      return "Player";
+    },
+  });
+  playerName;
+}

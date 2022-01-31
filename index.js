@@ -12,13 +12,20 @@ let playerName;
 const sleep = (ms = 2000) => new Promise((r) => setTimeout(r, ms));
 
 async function welcome() {
-  const rainbowTitle = chalkAnimation.rainbow("Are you a winner?");
+  const rainbowTitle = chalkAnimation.rainbow(
+    "Who Wants To play Harry Potter Trivia? \n"
+  );
+
   await sleep();
   rainbowTitle.stop();
 
-  console.log(`${chalk.bgBlueBright("Are you ready to?")}`);
+  console.log(`
+    ${chalk.bgBlue("HOW TO PLAY")} 
+    I am a process on your computer.
+    If you get any question wrong I will be ${chalk.bgRed("killed")}
+    So get all the questions right...
+  `);
 }
-await welcome();
 
 async function askName() {
   const answers = await inquirer.prompt({
@@ -31,14 +38,31 @@ async function askName() {
   });
   playerName = answers.player_name;
 }
-await askName();
 
 async function question1() {
   const answers = await inquirer.prompt({
-    name: "question 1",
-    type: "input",
-    message: "What was Harry Potter's mother's name?",
+    name: "question_1",
+    type: "list",
+    message: "What was Harry Potter's father's name?",
     choices: ["Albus Potter", "James Potter", "Severus Snape"],
   });
-  return handleAnswer(answers.question1);
+  return handleAnswer(answers.question_1 == "James Potter");
 }
+
+async function handleAnswer(isCorrect) {
+  const spinner = createSpinner("Checking Answer...");
+  await sleep();
+
+  if (isCorrect) {
+    spinner.success({
+      text: `Awesome! You nailed it!! ${playerName} You've answered correctly 🥳`,
+    });
+  } else {
+    spinner.error({ text: `You lost ${playerName} 😑 ` });
+  }
+  process.exit(1);
+}
+console.clear();
+await welcome();
+await askName();
+await question1();

@@ -49,6 +49,16 @@ async function question1() {
   return handleAnswer(answers.question_1 == "James Potter");
 }
 
+async function question2() {
+  const answers = await inquirer.prompt({
+    name: "question_2",
+    type: "list",
+    message: "What was Ron Weasly's sister's name?",
+    choices: ["Ginny", "Rowena", "Luna"],
+  });
+  return handleAnswer(answers.question_2 == "Ginny");
+}
+
 async function handleAnswer(isCorrect) {
   const spinner = createSpinner("Checking Answer...");
   await sleep();

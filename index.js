@@ -46,7 +46,7 @@ async function question1() {
     message: "What was Harry Potter's father's name?",
     choices: ["Albus Potter", "James Potter", "Severus Snape"],
   });
-  return handleAnswer(answers.question_1 == "James Potter");
+  return handleAnswer(answers.question_1 === "James Potter");
 }
 
 async function question2() {
@@ -56,7 +56,7 @@ async function question2() {
     message: "What was Ron Weasly's sister's name?",
     choices: ["Ginny", "Rowena", "Luna"],
   });
-  return handleAnswer(answers.question_2 == "Ginny");
+  return handleAnswer(answers.question_2 === "Ginny");
 }
 
 async function handleAnswer(isCorrect) {
@@ -72,7 +72,24 @@ async function handleAnswer(isCorrect) {
   }
   process.exit(1);
 }
+
+function winner() {
+  console.clear();
+  figlet(`Congrats , ${playerName} !\n $ 1 , 0 0 0 , 0 0 0`, (err, data) => {
+    console.log(gradient.pastel.multiline(data) + "\n");
+
+    console.log(
+      chalk.green(
+        `Programming isn't about what you know; it's about making the command line look cool`
+      )
+    );
+    process.exit(0);
+  });
+}
+
 console.clear();
 await welcome();
 await askName();
-await question1();
+//await question1();
+await question2();
+winner();

@@ -28,6 +28,12 @@ Cool! You're all set now! Play the game and win it!
 
 If you really like this game, do ⭐️ this repository and share it on your socials!
 
+Other Packages that were used:
+
+```
+npm i chalk chalk-animation figlet gradient-string inquirer nanospinner
+```
+
 Got some thoughts to share about this game? Find me on [twitter](https://twitter.com/TheSohini) 👋
 
 Thanks for playing 🥳

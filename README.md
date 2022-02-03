@@ -34,6 +34,8 @@ Other Packages that were used:
 npm i chalk chalk-animation figlet gradient-string inquirer nanospinner
 ```
 
+Inspired from [fireship.io](https://fireship.io/) 💪🏻
+
 Got some thoughts to share about this game? Find me on [twitter](https://twitter.com/TheSohini) 👋
 
 Thanks for playing 🥳

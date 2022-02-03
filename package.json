@@ -1,5 +1,5 @@
 {
-  "name": "quiz-cli",
+  "name": "docker-game-cli",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",

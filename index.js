@@ -61,6 +61,16 @@ async function question2() {
   return handleAnswer(answers.question_2 === "Kubernetes");
 }
 
+async function question3() {
+  const answers = await inquirer.prompt({
+    name: "question_3",
+    type: "list",
+    message: "Does Docker allow us to run containers and build images?",
+    choices: ["True", "False"],
+  });
+  return handleAnswer(answers.question_3 === "True");
+}
+
 async function handleAnswer(isCorrect) {
   const spinner = createSpinner("Checking Answer...");
   await sleep();

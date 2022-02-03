@@ -71,6 +71,26 @@ async function question3() {
   return handleAnswer(answers.question_3 === "True");
 }
 
+async function question4() {
+  const answers = await inquirer.prompt({
+    name: "question_4",
+    type: "list",
+    message: "The Docker Logo looks like?",
+    choices: ["A sailboat", "An Octocat", "A whale"],
+  });
+  return handleAnswer(answers.question_4 === "A whale");
+}
+
+async function question5() {
+  const answers = await inquirer.prompt({
+    name: "question_5",
+    type: "list",
+    message: "Docker was written in which programming language?",
+    choices: ["Java", "Go", "C++"],
+  });
+  return handleAnswer(answers.question_5 === "Go");
+}
+
 async function handleAnswer(isCorrect) {
   const spinner = createSpinner("Checking Answer...");
   await sleep();
@@ -101,4 +121,7 @@ await welcome();
 await askName();
 await question1();
 await question2();
+await question3();
+await question4();
+await question5();
 winner();
